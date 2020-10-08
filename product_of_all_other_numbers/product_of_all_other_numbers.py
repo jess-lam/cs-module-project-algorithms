@@ -2,12 +2,37 @@
 Input: a List of integers
 Returns: a List of integers
 '''
+import math
+
 def product_of_all_other_numbers(arr):
     # Your code here
+    prod = []
+    for i in range(0, len(arr)):
+        if i == 0:
+            first = math.prod(arr[1:])
+            prod.append(first)
+        else:
+            first_half = arr[0: i]
+            second_half = arr[ i+1: ]
+            all = first_half + second_half
+            
+            prod.append(math.prod(all))
+    return prod
+    
 
-    pass
-
-
+"""
+For example, given 
+```
+[1, 7, 3, 4]
+```
+your function should return 
+```
+[84, 12, 28, 21]
+``` 
+by calculating 
+```
+[7*3*4, 1*3*4, 1*7*4, 1*7*3]
+"""
 if __name__ == '__main__':
     # Use the main function to test your implementation
     # arr = [1, 2, 3, 4, 5]
