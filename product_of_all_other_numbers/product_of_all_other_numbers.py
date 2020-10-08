@@ -12,10 +12,11 @@ def product_of_all_other_numbers(arr):
             first = math.prod(arr[1:])
             prod.append(first)
         else:
-            first_half = math.prod(arr[0: i])
-            second_half = math.prod(arr[ i+1 : ])
-            prod.append(first_half)
-            prod.append(second_half)
+            first_half = arr[0: i]
+            second_half = arr[ i+1: ]
+            all = first_half + second_half
+            
+            prod.append(math.prod(all))
     return prod
     
 
